@@ -1,8 +1,9 @@
 # Afvalwijzer library
+[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)
 
 This library is meant to interface with http://www.mijnafvalwijzer.nl/
 
-It is meant as a workaround for the afvalwijzer app (used in the Netherlands) to be notified when to place the bin at the road.
+It is meant as a *workaround* for the afvalwijzer app (used in the Netherlands) to be notified when to place the bin at the road.
 Since this app delivers a poor functionality for notifications, and I needed a small project, I created this.
 
 ## Installation
@@ -54,7 +55,7 @@ def notification(device=None):
 
 
 zipcode = '3564KV'
-number = '13'
+number = 13
 pushbulletapi = 'pushbullet_api'
 pushbulletdevice = 'LGE Nexus 5X'
 
