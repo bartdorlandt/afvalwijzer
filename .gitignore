@@ -1,0 +1,8 @@
+# List all files and directories that shouldn't be tracked.
+*.bak                                                      
+**/__pycache__                                             
+**/old/                                                    
+*.swp                                                      
+*.txt                                                      
+*.py[cod]                                                  
+**/backup                                                  
