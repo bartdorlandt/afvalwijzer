@@ -1,5 +1,5 @@
 # Afvalwijzer library
-[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)
+[![Build Status](https://travis-ci.org/bambam82/afvalwijzer.svg?branch=master)](https://travis-ci.org/bambam82/afvalwijzer)[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)
 
 This library is meant to interface with http://www.mijnafvalwijzer.nl/
 

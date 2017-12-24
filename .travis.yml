@@ -8,10 +8,12 @@ install:
     - "pip install -r requirements.txt"
     - "pip install -e ."
     - "pip install pytest"
-    - "pip install coverage"
+    - "pip install pytest-cov"
+    # - "pip install coverage"
     - "pip install python-coveralls"
 script:
     - "pytest"
-#     - "coverage run --source=Afvalwijzer setup.py test"
-# after_sucess:
-#     coveralls
+    # - "coverage run --source=Afvalwijzer setup.py test"
+    - "py.test --cov=Afvalwijzer tests/"
+after_sucess:
+    coveralls

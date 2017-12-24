@@ -38,3 +38,5 @@ class TestAfvalwijzer(object):
         today = garbage._today
         if date == today:
             assert garbage.notify() is True
+        else:
+            assert garbage.notify() is None
