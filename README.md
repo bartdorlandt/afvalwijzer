@@ -8,7 +8,14 @@ Since this app delivers a poor functionality for notifications, and I needed a s
 
 ## Installation
 ```bash
+# using pip or pip3
 pip install afvalwijzer
+```
+
+## Uninstallation
+```bash
+# using pip or pip3
+pip uninstall afvalwijzer
 ```
 
 ## Usage

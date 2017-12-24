@@ -1,4 +1,5 @@
 from setuptools import setup
+from codecs import open
 
 # Packaging
 # https://packaging.python.org/tutorials/distributing-packages/
