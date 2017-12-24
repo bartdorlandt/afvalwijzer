@@ -10,10 +10,9 @@ install:
     - "pip install pytest"
     # - "pip install pytest-cov"
     - "pip install coverage"
-    - "pip install python-coveralls"
+    - "pip install coveralls"
 script:
     - "pytest"
     - "coverage run --source=Afvalwijzer setup.py test"
     # - "py.test --cov=Afvalwijzer tests/"
-after_sucess:
-    coveralls
+after_sucess: coveralls
