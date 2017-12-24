@@ -8,6 +8,8 @@ python:
     - "3.6"
 install:
     - "pip install -r requirements.txt"
+      # the -e is most necessary, else Coverage.py warning: No data was collected. (no-data-collected)
+      # Causing coveralls.io to fail
     - "pip install -e ."
     - "pip install pytest"
     - "pip install pytest-cov"
