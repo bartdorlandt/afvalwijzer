@@ -56,7 +56,7 @@ def notification(device=None):
 
 zipcode = '3564KV'
 number = 13
-pushbulletapi = 'pushbullet_api'
+pushbulletapi = 'pushbullet_api_key'
 pushbulletdevice = 'LGE Nexus 5X'
 
 garbage = Afvalwijzer(zipcode, number)
