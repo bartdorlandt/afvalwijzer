@@ -1,6 +1,5 @@
 language: python
-# os:
-#     - linux
+os: linux
 #     - osx
 sudo: false
 python:
@@ -13,11 +12,11 @@ install:
     - "pip install ."
     - "pip install pytest"
     - "pip install pytest-cov"
-    - "pip install coverage"
+    # - "pip install coverage"
     - "pip install coveralls"
 script:
     - "pytest"
     # - "coverage run --source=Afvalwijzer setup.py test"
-    # - "py.test --cov-report term-missing --cov=Afvalwijzer tests/"
-    - "py.test --cov=Afvalwijzer tests/"
+    - "py.test --cov-report term-missing --cov=Afvalwijzer tests/"
+    # - "py.test --cov=Afvalwijzer tests/"
 after_success: coveralls
