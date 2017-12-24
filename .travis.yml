@@ -15,4 +15,4 @@ script:
     - "pytest"
     # - "coverage run --source=Afvalwijzer setup.py test"
     - "py.test --cov=Afvalwijzer tests/"
-after_sucess: coveralls
+after_success: coveralls
