@@ -1,5 +1,5 @@
 # Afvalwijzer library
-[![Build Status](https://travis-ci.org/bambam82/afvalwijzer.svg?branch=master)](https://travis-ci.org/bambam82/afvalwijzer)[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)[![PyPI version](https://img.shields.io/pypi/v/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)[![Wheel](https://img.shields.io/pypi/wheel/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)[![Python versions](https://img.shields.io/pypi/pyversions/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)
+[![Build Status](https://travis-ci.org/bambam82/afvalwijzer.svg?branch=master)](https://travis-ci.org/bambam82/afvalwijzer)[![Coveralls github](https://img.shields.io/coveralls/bambam82/afvalwijzer.svg)](https://coveralls.io/github/bambam82/afvalwijzer)[![PyPI version](https://img.shields.io/pypi/v/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)[![Wheel](https://img.shields.io/pypi/wheel/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)[![Python versions](https://img.shields.io/pypi/pyversions/afvalwijzer.svg)](https://pypi.python.org/pypi/afvalwijzer)
 
 This library is meant to interface with http://www.mijnafvalwijzer.nl/
 
