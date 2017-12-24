@@ -34,7 +34,7 @@ setup(name='afvalwijzer',
       packages=['Afvalwijzer'],
       install_requires=['requests', 'beautifulsoup4', 'datetime'],
       include_package_data=True,
-      python_requires='>=2.7.*, >=3.4.*, <4',
+      # python_requires='>=2.7.*, >=3.4.*, <4',
       setup_requires=['pytest-runner'],
       tests_require=['pytest'],
       zip_safe=False)
