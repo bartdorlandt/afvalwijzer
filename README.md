@@ -1,5 +1,5 @@
 # Afvalwijzer library
-[![Build Status](https://travis-ci.org/bambam82/afvalwijzer.svg?branch=master)](https://travis-ci.org/bambam82/afvalwijzer)[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)
+[![Build Status](https://travis-ci.org/bambam82/afvalwijzer.svg?branch=master)](https://travis-ci.org/bambam82/afvalwijzer)[![Coverage Status](https://coveralls.io/repos/github/bambam82/afvalwijzer/badge.svg)](https://coveralls.io/github/bambam82/afvalwijzer)[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://pypi.python.org/pypi/afvalwijzer)[![PyPI](https://img.shields.io/pypi/wheel/Django.svg)](https://pypi.python.org/pypi/afvalwijzer)[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg)](https://pypi.python.org/pypi/afvalwijzer)
 
 This library is meant to interface with http://www.mijnafvalwijzer.nl/
 
@@ -78,3 +78,4 @@ This script can now be set up as a cronjob on your server or alike.
 
 ## Contributors are most welcome
 I'm still learning how to work with it all. Therefore feedback, advice, pull request etc. are most welcome.
+

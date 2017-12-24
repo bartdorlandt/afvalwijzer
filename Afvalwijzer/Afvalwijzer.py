@@ -7,6 +7,25 @@ It is meant as a workaround for the afvalwijzer app (used in the Netherlands)
 to be notified when to place the bin at the road. Since this app delivers a
 poor functionality for notifications, and I needed a small project,
 I created this.
+
+Author: Bart Dorlandt (bart@bamweb.nl)
+
+## Usage
+
+>>> from Afvalwijzer import Afvalwijzer
+>>> zipcode = '3564KV'
+>>> number = '13'
+>>> garbage = Afvalwijzer(zipcode, number)
+
+>>> garbage.get_pickupdate()
+'2017-12-27'
+
+>>> garbage.get_wastetype()
+'Groente-, Fruit- en Tuinafval'
+
+>>> garbage.garbage()
+('2017-12-27', 'Groente-, Fruit- en Tuinafval')
+
 '''
 
 import requests

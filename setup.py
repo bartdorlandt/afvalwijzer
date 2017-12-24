@@ -5,9 +5,13 @@ from setuptools import setup
 # classifiers
 # https://pypi.python.org/pypi?%3Aaction=list_classifiers
 
+with open('README.md', 'r', 'utf-8') as f:
+    readme = f.read()
+
 setup(name='afvalwijzer',
       version='0.1',
       description='Getting the waste date and type for the Netherlands',
+      long_description=readme,
       url='https://github.com/bambam82/afvalwijzer',
       author='Bart Dorlandt',
       author_email='bart@bamweb.nl',
