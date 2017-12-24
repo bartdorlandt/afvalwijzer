@@ -3,7 +3,6 @@
 **/__pycache__
 **/old/
 *.swp
-*.txt
 *.py[cod]
 **/backup
 

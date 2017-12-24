@@ -2,6 +2,7 @@ language: python
 os: linux
 # sudo: false
 python:
+    - "2.7"
     - "3.5"
     - "3.6"
 install:
@@ -14,5 +15,5 @@ install:
 script:
     - "pytest"
     # - "coverage run --source=Afvalwijzer setup.py test"
-    - "py.test --cov=Afvalwijzer tests/"
+    - "py.test --cov-report term-missing --cov=Afvalwijzer tests/"
 after_success: coveralls
