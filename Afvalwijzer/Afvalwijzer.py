@@ -15,22 +15,27 @@ Author: Bart Dorlandt (bart@bamweb.nl)
 >>> from Afvalwijzer import Afvalwijzer
 >>> zipcode = '3564KV'
 >>> number = '13'
->>> garbage = Afvalwijzer(zipcode, number)
+>>> garbage = Afvalwijzer.Afvalwijzer(zipcode, number)
 
->>> garbage.get_pickupdate()
+>>> garbage.pickupdate
 '2017-12-27'
 
->>> garbage.get_wastetype()
+>>> garbage.wastetype
 'Groente-, Fruit- en Tuinafval'
 
->>> garbage.garbage()
+>>> garbage.garbage
 ('2017-12-27', 'Groente-, Fruit- en Tuinafval')
+
+The following function only returns true if the pickup date is the same as today.
+>>> garbage.notify
 
 '''
 
 import requests
 from bs4 import BeautifulSoup
 import datetime
+
+__version__ = '0.2'
 
 
 class Afvalwijzer(object):
@@ -40,36 +45,34 @@ class Afvalwijzer(object):
         self.housenumber = housenumber
         self._year = datetime.datetime.now().year
         self._today = datetime.date.today()
-        self._wastetype = None
-        self._pickupdate = None
+        self._pickupdate, self._wastetype = self.__get_data()
 
     def __get_data(self):
-        if self._pickupdate and self._wastetype:
-            return
         url = 'http://www.mijnafvalwijzer.nl/nl/{}/{}/'.format(
                 self.zipcode, self.housenumber)
         html = requests.get(url).content
         soup = BeautifulSoup(html, "html.parser")
         dow, day, month = soup.find('p', class_="firstDate").string.split()
-        self._wastetype = str(soup.find('p', class_="firstWasteType").string)
-        # self._pickupdate = datetime.date(self._year, int(day), int(month))
-        self._pickupdate = datetime.datetime.strptime(
+        wastetype = str(soup.find('p', class_="firstWasteType").string)
+        pickupdate = datetime.datetime.strptime(
             ' '.join((str(self._year), day, month)), '%Y %d %B').date()
+        return pickupdate, wastetype
 
-    def get_pickupdate(self):
-        self.__get_data()
+    @property
+    def pickupdate(self):
         return self._pickupdate.strftime('%Y-%m-%d')
 
-    def get_wastetype(self):
-        self.__get_data()
+    @property
+    def wastetype(self):
         return self._wastetype
 
+    @property
     def notify(self):
         '''If the pickup date is today, return True.'''
-        self.__get_data()
-        if self._pickupdate == self._today:
+        if self.pickupdate == self._today:
             return True
 
+    @property
     def garbage(self):
         '''Return both the pickup date and the container type.'''
-        return self.get_pickupdate(), self.get_wastetype()
+        return self.pickupdate, self.wastetype

@@ -1,6 +1,8 @@
 from setuptools import setup
 from codecs import open
 
+from Afvalwijzer import Afvalwijzer
+
 # Packaging
 # https://packaging.python.org/tutorials/distributing-packages/
 # classifiers
@@ -9,16 +11,19 @@ from codecs import open
 with open('README.md', 'r', 'utf-8') as f:
     readme = f.read()
 
+with open('HISTORY.md', 'r', 'utf-8') as f:
+    history = f.read()
+
 setup(name='afvalwijzer',
-      version='0.1',
+      version=Afvalwijzer.__version__,
       description='Getting the waste date and type for the Netherlands',
-      long_description=readme,
+      long_description=readme + '\n\n' + history,
       url='https://github.com/bambam82/afvalwijzer',
       author='Bart Dorlandt',
       author_email='bart@bamweb.nl',
       license='MIT',
       classifiers=[
-          'Development Status :: 3 - Alpha',
+          'Development Status :: 4 - Beta',
           'License :: OSI Approved :: MIT License',
           'Intended Audience :: End Users/Desktop',
           'Intended Audience :: Other Audience',
@@ -39,7 +44,7 @@ setup(name='afvalwijzer',
       packages=['Afvalwijzer'],
       install_requires=['requests', 'beautifulsoup4', 'datetime'],
       include_package_data=True,
-      # python_requires='>=2.7.*, >=3.4.*, <4',
+      # python_requires='>=2.7.0, >=3.4.0, <4',
       setup_requires=['pytest-runner'],
       tests_require=['pytest'],
       zip_safe=False)

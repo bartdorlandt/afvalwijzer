@@ -1,1 +1,1 @@
-from .Afvalwijzer import Afvalwijzer
+from Afvalwijzer import Afvalwijzer

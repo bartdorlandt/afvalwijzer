@@ -23,22 +23,21 @@ pip uninstall afvalwijzer
 >>> from Afvalwijzer import Afvalwijzer
 >>> zipcode = '3564KV'
 >>> number = '13'
->>> garbage = Afvalwijzer(zipcode, number)
+>>> garbage = Afvalwijzer.Afvalwijzer(zipcode, number)
 
->>> garbage.get_pickupdate()
+>>> garbage.pickupdate
 '2017-12-27'
 
->>> garbage.get_wastetype()
+>>> garbage.wastetype
 'Groente-, Fruit- en Tuinafval'
 
->>> garbage.garbage()
+>>> garbage.garbage
 ('2017-12-27', 'Groente-, Fruit- en Tuinafval')
-
 ```
 
-The following function returns true if the pickup date is the same as today.
+The following function only returns true if the pickup date is the same as today.
 ```python
->>> garbage.notify()
+>>> garbage.notify
 ```
 
 Below is shown how I use it to get notified using pushbullet.
