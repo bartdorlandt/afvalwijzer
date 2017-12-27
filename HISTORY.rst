@@ -1,6 +1,12 @@
 .. :changelog:
+
 Release History
 ---------------
+
+0.2.4 (2017-08-27)
+++++++++++++++++++
+- Fixed rst issues; now showing correct html on pypi
+- learned about ``python setup.py checkdocs``; require *pygments* and *collective.checkdocs*
 
 0.2.1 (2017-08-26)
 ++++++++++++++++++
