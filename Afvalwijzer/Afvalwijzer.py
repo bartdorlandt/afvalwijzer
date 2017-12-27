@@ -15,27 +15,25 @@ Author: Bart Dorlandt (bart@bamweb.nl)
 >>> from Afvalwijzer import Afvalwijzer
 >>> zipcode = '3564KV'
 >>> number = '13'
->>> garbage = Afvalwijzer.Afvalwijzer(zipcode, number)
+>>> garbage = Afvalwijzer(zipcode, number)
 
 >>> garbage.pickupdate
-'2017-12-27'
+'Vandaag'
 
 >>> garbage.wastetype
 'Groente-, Fruit- en Tuinafval'
 
 >>> garbage.garbage
-('2017-12-27', 'Groente-, Fruit- en Tuinafval')
+('Vandaag', 'Groente-, Fruit- en Tuinafval')
 
 The following function only returns true if the pickup date is the same as today.
 >>> garbage.notify
+True
 
 '''
 
 import requests
 from bs4 import BeautifulSoup
-import datetime
-
-__version__ = '0.2'
 
 
 class Afvalwijzer(object):
@@ -43,8 +41,6 @@ class Afvalwijzer(object):
     def __init__(self, zipcode, housenumber):
         self.zipcode = zipcode
         self.housenumber = housenumber
-        self._year = datetime.datetime.now().year
-        self._today = datetime.date.today()
         self._pickupdate, self._wastetype = self.__get_data()
 
     def __get_data(self):
@@ -52,15 +48,13 @@ class Afvalwijzer(object):
                 self.zipcode, self.housenumber)
         html = requests.get(url).content
         soup = BeautifulSoup(html, "html.parser")
-        dow, day, month = soup.find('p', class_="firstDate").string.split()
+        pickupdate = str(soup.find('p', class_="firstDate").string)
         wastetype = str(soup.find('p', class_="firstWasteType").string)
-        pickupdate = datetime.datetime.strptime(
-            ' '.join((str(self._year), day, month)), '%Y %d %B').date()
         return pickupdate, wastetype
 
     @property
     def pickupdate(self):
-        return self._pickupdate.strftime('%Y-%m-%d')
+        return self._pickupdate
 
     @property
     def wastetype(self):
@@ -69,7 +63,7 @@ class Afvalwijzer(object):
     @property
     def notify(self):
         '''If the pickup date is today, return True.'''
-        if self.pickupdate == self._today:
+        if self.pickupdate == 'Vandaag':
             return True
 
     @property
