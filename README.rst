@@ -41,6 +41,12 @@ Usage
     >>> garbage.garbage
     ('Vandaag', 'Groente-, Fruit- en Tuinafval')
 
+    >>> garbage.pickupdates
+    ['dinsdag 02 januari', 'dinsdag 02 januari']
+
+    >>> garbage.wastetypes
+    ['Groente-, Fruit- en Tuinafval', 'Kerstbomen']
+
 The following function only returns true if the pickup date is the same as today.
 
 .. code:: python

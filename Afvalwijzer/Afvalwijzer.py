@@ -26,6 +26,12 @@ Author: Bart Dorlandt (bart@bamweb.nl)
 >>> garbage.garbage
 ('Vandaag', 'Groente-, Fruit- en Tuinafval')
 
+>>> garbage.pickupdates
+['dinsdag 02 januari', 'dinsdag 02 januari']
+
+>>> garbage.wastetypes
+['Groente-, Fruit- en Tuinafval', 'Kerstbomen']
+
 The following function only returns true if the pickup date is the same as today.
 >>> garbage.notify
 True
@@ -41,24 +47,32 @@ class Afvalwijzer(object):
     def __init__(self, zipcode, housenumber):
         self.zipcode = zipcode
         self.housenumber = housenumber
-        self._pickupdate, self._wastetype = self.__get_data()
+        self._pickupdates, self._wastetypes = self.__get_data()
 
     def __get_data(self):
         url = 'http://www.mijnafvalwijzer.nl/nl/{}/{}/'.format(
                 self.zipcode, self.housenumber)
         html = requests.get(url).content
         soup = BeautifulSoup(html, "html.parser")
-        pickupdate = str(soup.find('p', class_="firstDate").string)
-        wastetype = str(soup.find('p', class_="firstWasteType").string)
-        return pickupdate, wastetype
+        pickupdates = [str(x.text) for x in soup.findAll('p', class_="firstDate")]
+        wastetypes = [str(x.text) for x in soup.findAll('p', class_="firstWasteType")]
+        return pickupdates, wastetypes
 
     @property
     def pickupdate(self):
-        return self._pickupdate
+        return self._pickupdates[0]
 
     @property
     def wastetype(self):
-        return self._wastetype
+        return self._wastetypes[0]
+
+    @property
+    def pickupdates(self):
+        return self._pickupdates
+
+    @property
+    def wastetypes(self):
+        return self._wastetypes
 
     @property
     def notify(self):
