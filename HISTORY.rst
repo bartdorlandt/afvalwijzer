@@ -3,6 +3,10 @@
 Release History
 ---------------
 
+0.2.5 (2017-08-28)
+++++++++++++++++++
+- Improving the python packaging, following: `Python packaging <https://python-packaging.readthedocs.io>`__
+
 0.2.4 (2017-08-27)
 ++++++++++++++++++
 - Fixed rst issues; now showing correct html on pypi

@@ -25,16 +25,18 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-with open('README.rst', 'r', 'utf-8') as f:
-    readme = f.read()
+def readme():
+    with open('README.rst', 'r', 'utf-8') as f:
+        readme = f.read()
+    with open('HISTORY.rst', 'r', 'utf-8') as f:
+        history = f.read()
+    return readme + '\n\n' + history
 
-with open('HISTORY.rst', 'r', 'utf-8') as f:
-    history = f.read()
 
 setup(name='afvalwijzer',
       version=find_version("Afvalwijzer", "__init__.py"),
       description='Getting the waste date and type for the Netherlands',
-      long_description=readme + '\n\n' + history,
+      long_description=readme(),
       url='https://github.com/bambam82/afvalwijzer',
       author='Bart Dorlandt',
       author_email='bart@bamweb.nl',
