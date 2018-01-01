@@ -38,6 +38,7 @@ True
 
 '''
 
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -45,13 +46,19 @@ from bs4 import BeautifulSoup
 class Afvalwijzer(object):
 
     def __init__(self, zipcode, housenumber):
-        self.zipcode = zipcode
         self.housenumber = housenumber
+
+        _zipcode = re.match('^\d{4}[a-zA-Z]{2}', zipcode)
+        if _zipcode:
+            self.zipcode = _zipcode.group()
+        else:
+            raise ValueError("Zipcode has a incorrect format. Example: 3564KV")
+
         self._pickupdates, self._wastetypes = self.__get_data()
 
     def __get_data(self):
         url = 'http://www.mijnafvalwijzer.nl/nl/{}/{}/'.format(
-                self.zipcode, self.housenumber)
+                self.zipcode, str(self.housenumber))
         html = requests.get(url).content
         soup = BeautifulSoup(html, "html.parser")
         pickupdates = [str(x.text) for x in soup.findAll('p', class_="firstDate")]

@@ -1,3 +1,4 @@
+import pytest
 from Afvalwijzer import Afvalwijzer
 
 
@@ -6,9 +7,17 @@ class TestAfvalwijzer(object):
         garbage = Afvalwijzer('3564KV', 13)
         assert garbage.zipcode == '3564KV'
 
+    def test_incorrect_zipcode(self):
+        with pytest.raises(ValueError) as e:
+            garbage = Afvalwijzer('35641KV', 13)
+
     def test_housenumber(self):
         garbage = Afvalwijzer('3564KV', 13)
         assert garbage.housenumber == 13
+
+    def test_housenumber_string(self):
+        garbage = Afvalwijzer('3564KV', '13')
+        assert garbage.housenumber == '13'
 
     def test_garbage(self):
         garbage = Afvalwijzer('3564KV', 13)

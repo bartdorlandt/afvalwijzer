@@ -3,6 +3,11 @@
 Release History
 ---------------
 
+0.2.7 (2018-01-01)
+++++++++++++++++++
+- Verification added for zipcode value
+- Test added for assert on the raise
+
 0.2.6 (2017-12-31)
 ++++++++++++++++++
 - Change the dates in 'HISTORY.rst' to the correct month
