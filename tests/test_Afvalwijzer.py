@@ -9,7 +9,7 @@ class TestAfvalwijzer(object):
 
     def test_incorrect_zipcode(self):
         with pytest.raises(ValueError) as e:
-            garbage = Afvalwijzer('35641KV', 13)
+            _ = Afvalwijzer('35641KV', 13)
 
     def test_housenumber(self):
         garbage = Afvalwijzer('3564KV', 13)

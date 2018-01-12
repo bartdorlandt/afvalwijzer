@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 This library is meant to interface with http://www.mijnafvalwijzer.nl/
 
 It is meant as a workaround for the afvalwijzer app (used in the Netherlands)
@@ -36,9 +36,10 @@ The following function only returns true if the pickup date is the same as today
 >>> garbage.notify
 True
 
-'''
+"""
 
 import re
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -58,7 +59,7 @@ class Afvalwijzer(object):
 
     def __get_data(self):
         url = 'http://www.mijnafvalwijzer.nl/nl/{}/{}/'.format(
-                self.zipcode, str(self.housenumber))
+            self.zipcode, str(self.housenumber))
         html = requests.get(url).content
         soup = BeautifulSoup(html, "html.parser")
         pickupdates = [str(x.text) for x in soup.findAll('p', class_="firstDate")]
@@ -83,11 +84,11 @@ class Afvalwijzer(object):
 
     @property
     def notify(self):
-        '''If the pickup date is today, return True.'''
+        """If the pickup date is today, return True."""
         if self.pickupdate == 'Vandaag':
             return True
 
     @property
     def garbage(self):
-        '''Return both the pickup date and the container type.'''
+        """Return both the pickup date and the container type."""
         return self.pickupdate, self.wastetype
